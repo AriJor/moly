@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 
-<html>
-
+<html lang="fi">
     <head>
+        <meta charset="UTF-8">
         <title>Möly</title>
         <link rel="stylesheet" href="Main/Style/home.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,39 +11,90 @@
     <body>
         <div class="left-sidebar">
             <div class="left-sidebar-container">
-                <button type="submit" class="home-page-button">
-                    <img src="Main/Assets/Home-page.png"></img>
+                <button type="button" class="home-page-button" id="home-page-button" aria-label="Kotisivu">
+                    <img src="Main/Assets/Home-page.png" alt="Koti">
                 </button>
                 <div class="line"></div>
 
-                <div class="created-content-container">
-
-                </div>
+                <div class="created-content-container"></div>
 
                 <div class="line"></div>
-                <button type="submit" class="add-server">
-                    <img src="Main/Assets/Add-server.png"></img>
+                <button type="button" class="add-server" aria-label="Lisää palvelin">
+                    <img src="Main/Assets/Add-server.png" alt="Lisää">
                 </button>
-                <button type="submit" class="join-community">
-                    <img src="Main/Assets/Join-a-community.png"></img>
+                <button type="button" class="join-community" aria-label="Liity yhteisöön">
+                    <img src="Main/Assets/Join-a-community.png" alt="Yhteisö">
                 </button>
             </div>
         </div>
         
-        <div class="home-page">
+        <div class="home-page" id="home-page";>
             <div class="main-messages">
-                
+                <div class="direct-messages">
+                    <header class="messages-header">
+                        <h1>Viestit</h1>
+                        <div class="message-line"></div>
+                    </header>
+
+                    <ul class="user-direct-message-container">
+                        <li class="other-user-profile-template">
+                            <img src="Main/Assets/Add-server.png" alt="Profiili" class="user-avatar">
+                            <span class="user-name">Käyttäjä 1</span>
+                            <button type="button" class="message-item-btn" aria-label="Avaa keskustelu"></button>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="friend-messages">
+                    <header class="messages-header">
+                        <h1>Kaverit</h1>
+                        <div class="message-line"></div>
+                    </header>
+
+                    <ul class="user-friend-message-container">
+                        <li class="other-user-profile-template">
+                            <img src="Main/Assets/Add-server.png" alt="Profiili" class="user-avatar">
+                            <span class="user-name">Kaveri 1</span>
+                            <button type="button" class="message-item-btn" aria-label="Avaa keskustelu"></button>
+                        </li>
+
+                        <li class="send-friend-request">
+                            <button id="send-friend-request" type="button" class="message-item-btn" aria-label="Avaa keskustelu"> Lisää</button>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="own-profile">
-                
-            </div>
-
-            <div class="search-bar">
-                
+            <div class="right-panel">
+                <div class="own-profile"></div>
+                <div class="search-bar"></div>
             </div>
         </div>
-    </body>
 
-    <script src="Main/Script/home.js"></script>
+        <div class="chatterbox" id="chatterbox">
+            <div class="main-chatterbox">
+                <div class="chat-log-chatterbox"></div>
+                <div class="send-text-chatterbox">
+                    <form>
+                        <input type="text" placeholder="Kirjoita viesti...">
+                    </form>
+                </div>
+            </div>
+
+            <div class="right-chatterbox">
+                <div class="search-chatterbox"></div>
+                <div class="joined-users-chatterbox"></div>
+            </div>
+        </div>
+
+        <div id="add-a-friend" class="add-a-friend">
+            <div class="input-friend-name">
+                <form id="input-friend-name-form">
+                    <input id="input-friend-name" type="text" placeholder="Käyttäjänimi...">
+                </form>
+            </div>
+        </div>
+
+        <script src="Main/Script/home.js"></script>
+    </body>
 </html>
