@@ -1,0 +1,181 @@
+/* Root */
+:root {
+    --font-main: 'gg sans', 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --background-main: #313338;
+    --background-form: #2b2d31;
+    --background-input: #1e1f22;
+    --background-input-hover: #2b2d31;
+    --background-input-focus: #383a40;
+    --input-focus: #51535a;
+    --text-main: #f2f3f5;
+    --text-muted: #949ba4;
+    --loginButton: #23a55a;
+    --loginButton-hover: #1f8b4c;
+    --registerButton: #a13e2d;
+    --registerButton-hover: #8b2f1f;
+}
+
+/* Body */
+body {
+    background-color: var(--background-main);
+    overflow: hidden;
+    font-family: var(--font-main);
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(-45deg, var(--background-main), var(--background-form), var(--background-input), var(--background-input-hover));
+    background-size: 400% 400%;
+    animation: gradient-move 15s ease infinite;
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Left-sidebar (Desktop default) */
+.left-sidebar {
+    background-color: var(--background-form);
+    position: absolute;
+    top: 15px;
+    bottom: 15px;
+    left: 15px;
+    width: 80px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.left-sidebar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    padding: 10px 10px;
+    gap: 13px;
+    box-sizing: border-box;
+}
+
+/* Home button */
+.home-page {
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+}
+.home-page img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+/* Add server button */
+.add-server {
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+}
+.add-server img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+/* Join a community */
+.join-community {
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+}
+.join-community img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+/* Extra */
+.line {
+    background-color: #fff;
+    width: 40px;
+    height: 5px;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+.main-messages {
+    background-color: var(--background-main);
+    display: flex;
+    position: absolute;
+    left: 6.4%;
+    width: 92.9%;
+    top: 15px;
+    bottom: 15px;
+    border-radius: 8px;
+}
+
+.own-profile {
+    background-color: var(--background-main);
+}
+
+.search-bar {
+    background-color: var(--background-main);
+}
+
+.update-notes {
+    background-color: var(--background-main);
+}
+
+
+/* Phones & tablets (< 768px) */
+@media screen and (max-width: 768px) {
+     /* Divs (Frames) */
+    .left-sidebar {
+        width: 65px;
+        top: 10px;
+        bottom: 10px;
+        left: 10px;
+    }
+    .left-sidebar-container {
+        padding: 8px 5px;
+        gap: 10px;
+    }
+    .main-messages {
+        left: 13.3%;
+        width: 85%;
+        top: 10px;
+        bottom: 10px;
+    }
+
+    /* Buttons */
+    .home-page,
+    .add-server,
+    .join-community {
+        width: 45px;
+        height: 45px;
+    }
+
+     /* Extra */
+    .line {
+        width: 30px;
+        height: 4px;
+    }
+}

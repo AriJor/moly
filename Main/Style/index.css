@@ -1,0 +1,151 @@
+:root {
+    --font-main: 'gg sans', 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --background-main: #313338;
+    --background-form: #2b2d31;
+    --background-input: #1e1f22;
+    --background-input-hover: #2b2d31;
+    --background-input-focus: #383a40;
+    --input-focus: #51535a;
+    --text-main: #f2f3f5;
+    --text-muted: #949ba4;
+    --loginButton: #23a55a;
+    --loginButton-hover: #1f8b4c;
+    --registerButton: #a13e2d;
+    --registerButton-hover: #8b2f1f;
+}
+
+body {
+    background-color: var(--background-main);
+    display: flex;
+    font-family: var(--font-main);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(-45deg, var(--background-main), var(--background-form), var(--background-input), var(--background-input-hover));
+    background-size: 400% 400%;
+    animation: gradient-move 15s ease infinite;
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.title {
+    color: var(--text-main);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 20px;
+    width: 94%;
+}
+
+.title h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.login-form {
+    background-color: var(--background-form);
+    display: grid;
+    width: 300px;
+    padding: 20px;
+    gap: 15px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.login-form h2 {
+    color: var(--text-main);
+    font-size: 1.5rem;
+    margin: 0;
+    text-align: center;
+}
+
+.login-username, 
+.login-password {
+    color: var(--text-main);
+    display: grid;
+    width: 100%;
+    gap: 5px;
+}
+
+.login-username input,
+.login-password input {
+    background-color: var(--background-input);
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.login-password label,
+.login-username label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.login-username input:hover,
+.login-password input:hover {
+    background-color: var(--background-input-hover);
+    box-shadow: 0 0 0 0.5px var(--input-focus);
+}
+
+.login-username input:focus,
+.login-password input:focus {
+    outline: none;
+    background-color: var(--background-input-focus);
+    box-shadow: 0 0 0 0.5px var(--input-focus);
+}
+
+.register-button  {
+    justify-self: center;
+    background-color: var(--registerButton);
+    color: var(--text-main);
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    font-size: 0.95rem;
+    padding: 10px;
+    border-radius: 4px;
+    width: 50%;
+    transition: background-color 0.2s;
+}
+
+.login-button {
+    justify-self: center;
+    background-color: var(--loginButton);
+    color: var(--text-main);
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    font-size: 0.95rem;
+    padding: 10px;
+    border-radius: 4px;
+    width: 50%;
+    transition: background-color 0.2s;
+}
+
+.register-button:hover {
+    background-color: var(--registerButton-hover);
+}
+
+.login-button:hover {
+    background-color: var(--loginButton-hover);
+}
