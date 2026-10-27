@@ -65,7 +65,7 @@ body {
 }
 
 /* Home button */
-.home-page {
+.home-page-button {
     border: none;
     cursor: pointer;
     outline: none;
@@ -74,7 +74,7 @@ body {
     height: 60px;
     border-radius: 8px;
 }
-.home-page img {
+.home-page-button img {
     width: 100%;
     height: 100%;
     border-radius: 8px;
@@ -121,31 +121,50 @@ body {
     margin: 0 auto;
 }
 
+.home-page {
+    display: flex;
+    position: absolute;
+    width: 99.9%;
+    height: 100%;
+    top: 5px;
+    bottom: 30px;
+    border-radius: 8px;
+}
+
 .main-messages {
     background-color: var(--background-main);
     display: flex;
     position: absolute;
-    left: 6.4%;
-    width: 92.9%;
-    top: 15px;
-    bottom: 15px;
+    left: 6.5%;
+    width: 40%;
+    top: 30px;
+    bottom: 30px;
     border-radius: 8px;
 }
 
 .own-profile {
     background-color: var(--background-main);
+    display: flex;
+    position: absolute;
+    right: 1.5%;
+    width: 51.4%;
+    height: 45.7%;
+    top: 30px;
+    bottom: 30px;
+    border-radius: 8px;
 }
 
 .search-bar {
     background-color: var(--background-main);
+    display: flex;
+    position: absolute;
+    right: 1.5%;
+    width: 51.4%;
+    height: 45.7%;
+    bottom: 30px;
+    border-radius: 8px;
 }
 
-.update-notes {
-    background-color: var(--background-main);
-}
-
-
-/* Phones & tablets (< 768px) */
 @media screen and (max-width: 768px) {
      /* Divs (Frames) */
     .left-sidebar {
@@ -159,23 +178,80 @@ body {
         gap: 10px;
     }
     .main-messages {
-        left: 13.3%;
-        width: 85%;
-        top: 10px;
-        bottom: 10px;
+        left: 15%;
+        width: 25%;
+        top: 20px;
+        bottom: 20px;
     }
-
-    /* Buttons */
-    .home-page,
-    .add-server,
-    .join-community {
-        width: 45px;
-        height: 45px;
+    .own-profile {
+        right: 3%;
+        width: 55%;
+        height: 45%;
+        top: 20px;
+        bottom: 20px;
     }
-
-     /* Extra */
-    .line {
-        width: 30px;
-        height: 4px;
+    .search-bar {
+        right: 3%;
+        width: 55%;
+        height: 45%;
+        bottom: 20px;
+    }
+}
+@media screen and (max-width: 1300px) {
+     /* Divs (Frames) */
+    .main-messages {
+        left: 24%;
+        width: 37%;
+    }
+    .own-profile {
+        right: 2%;
+        width: 51%;
+        height: 45%;
+    }
+    .search-bar {
+        right: 2%;
+        width: 51%;
+        height: 45%;
+    }
+}
+@media screen and (min-width: 400px) and (max-width: 1300px) {
+     /* Divs (Frames) */
+    .main-messages {
+        left: 9.3%;
+        width: 35.5%;
+    }
+    .own-profile {
+        right: 2%;
+        width: 51%;
+        height: 44.8%;
+    }
+    .search-bar {
+        right: 2%;
+        width: 51%;
+        height: 44.8%;
+    }
+}
+@media screen and (min-width: 400px) and (max-width: 800px) {
+     /* Divs (Frames) */
+    .main-messages {
+        left: 13%;
+        width: 32%;
+    }
+}
+@media screen and (min-width: 100px) and (max-width: 900px) {
+     /* Divs (Frames) */
+    .main-messages {
+        left: 14%;
+        width: 30.5%;
+    }
+    .own-profile {
+        right: 3.5%;
+        width: 49%;
+        height: 46.3%;
+    }
+    .search-bar {
+        right: 3.4%;
+        width: 49%;
+        height: 46.3%;
     }
 }

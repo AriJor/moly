@@ -22,13 +22,15 @@ if (loginForm) {
             const users = await response.json();
 
             // Tarkista onko oikein & olemassa tiedostosta "data.json"
-            const matchedUser = users.find(
+            const loggedInUser = users.find(user => user.username === usernameInput && user.sepassword === passwordInput)
+            /*const matchedUser = users.find(
                 user => user.username === usernameInput && user.password === passwordInput
-            );
+            );*/
 
             // Kun kirjautuu sisään, mene "home.html", muuten anna virhe teksti
-            if (matchedUser) {
+            if (loggedInUser) {
                 localStorage.setItem("isLoggedIn", true)
+                localStorage.setItem("currentUser", JSON.stringify(loggedInUser));
                 window.location.href = 'home.html';
             } else {
                 alert('Virhe');
