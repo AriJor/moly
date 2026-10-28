@@ -354,6 +354,30 @@ body {
     text-overflow: ellipsis;
 }
 
+.accept-friend-request {
+    position: absolute;
+    top: 5px;
+    right: 35%;
+    width: 20%;
+    height: 80%;
+    background: green;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.decline-friend-request {
+    position: absolute;
+    top: 5px;
+    right: 10%;
+    width: 20%;
+    height: 80%;
+    background: red;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
 .message-item-btn {
     position: absolute;
     top: 0;

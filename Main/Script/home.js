@@ -25,9 +25,9 @@ async function loadPendingFriendRequests() {
 
         const container = document.querySelector('.user-friend-message-container');
         const sendFriendRequestLi = document.getElementById('send-friend-request').closest('li');
-
         if (freshUser.friends && freshUser.friends.pending) {
             Object.keys(freshUser.friends.pending).forEach(senderName => {
+                if (freshUser.friends.pending[senderName] === false) return;
                 if (container.querySelector(`[data-sender="${senderName}"]`)) return;
 
                 const template = document.querySelector('.friend-request-user-profile-template');
@@ -37,9 +37,91 @@ async function loadPendingFriendRequests() {
                     clone.setAttribute('data-sender', senderName);
                     
                     const nameSpan = clone.querySelector('.user-name');
-                    if (nameSpan) nameSpan.textContent = senderName;
+                    if (nameSpan) {
+                        nameSpan.textContent = senderName;
+                    }
+
+                    const acceptFriendRequest = clone.querySelector('.accept-friend-request')
+                    if (acceptFriendRequest) {
+                        acceptFriendRequest.addEventListener('click', () => {
+                            if (clone) clone.style.display = 'none';
+
+                            freshUser.friends.pending[senderName] = false;
+                            const updateResponse = fetch(`${apiUrl}/users/${freshUser.id}`, {
+                                method: "PATCH",
+                                headers: {
+                                    'Content-Type': "application/json",
+                                },
+                                body: JSON.stringify({
+                                    friends: freshUser.friends
+                                })
+                            });
+
+                            if (updateResponse.ok) {
+                                addAFriend.style.display = 'none';
+                                document.getElementById('input-friend-name').value = '';
+                            }
+                        });
+
+                        const template2 = document.querySelector('.friend-messager-user-profile-template');
+                        if (template2) {
+                            const clone2 = template2.cloneNode(true);
+                            clone2.style.display = 'flex';
+                            clone2.setAttribute('data-sender-friend', senderName);
+                            
+                            const nameSpan2 = clone2.querySelector('.user-name');
+                            if (nameSpan2) {
+                                nameSpan2.textContent = senderName;
+                            }
+
+                            container.insertBefore(clone2, sendFriendRequestLi);
+                        }
+                    }
+
+                    const declineFriendRequest = clone.querySelector('.decline-friend-request')
+                    if (declineFriendRequest) {
+                        declineFriendRequest.addEventListener('click', () => {
+                            if (clone) clone.style.display = 'none';
+
+                            freshUser.friends.pending[senderName] = false;
+                            const updateResponse = fetch(`${apiUrl}/users/${freshUser.id}`, {
+                                method: "PATCH",
+                                headers: {
+                                    'Content-Type': "application/json",
+                                },
+                                body: JSON.stringify({
+                                    friends: freshUser.friends
+                                })
+                            });
+
+                            if (updateResponse.ok) {
+                                addAFriend.style.display = 'none';
+                                document.getElementById('input-friend-name').value = '';
+                            }
+                        });
+                    }
 
                     container.insertBefore(clone, sendFriendRequestLi);
+                }
+            });
+        }
+
+        if (freshUser.friends && freshUser.friends.pending) {
+            Object.keys(freshUser.friends.pending).forEach(senderName => {
+                if (container.querySelector(`[data-sender-friend="${senderName}"]`)) return;
+
+                const template2 = document.querySelector('.friend-messager-user-profile-template');
+                if (template2) {
+                    const clone2 = template2.cloneNode(true);
+                    clone2.style.display = 'flex';
+                    clone2.setAttribute('data-sender-friend', senderName);
+                    
+                    const nameSpan2 = clone2.querySelector('.user-name');
+                    if (nameSpan2) {
+                        nameSpan2.textContent = senderName;
+                    }
+
+                    container.insertBefore(clone2, sendFriendRequestLi);
                 }
             });
         }

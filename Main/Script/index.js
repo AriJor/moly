@@ -1,8 +1,9 @@
 const apiUrl = 'http://localhost:3000';
 
+/*
 if (localStorage.getItem("isLoggedIn") == "true") {
-    window.location.href = 'home.html';
-}
+    window.location.href = 'index.html';
+}*/
 
 const loginForm = document.querySelector('.login-form');
 if (loginForm) {
