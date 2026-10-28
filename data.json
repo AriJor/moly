@@ -5,7 +5,9 @@
       "username": "test",
       "password": "test",
       "friends": {
-        "pending": {},
+        "pending": {
+          "test": true
+        },
         "accepted": {}
       }
     }
